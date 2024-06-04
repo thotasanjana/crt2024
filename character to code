@@ -1,0 +1,11 @@
+Read a character and print exact code
+#include <stdio.h>
+
+int main() {
+    char a;
+    scanf("%c",&a);
+    
+    printf("%d",a);
+
+    return 0;
+}
