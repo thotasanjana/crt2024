@@ -1,0 +1,74 @@
+Write a program to find the sum of elements in each row.
+
+Input Format
+
+Integers correspond to the size of rows and columns. Read elements of the array
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Sum of each row in seperate line
+
+Sample Input 0
+
+3
+3
+1 2 3
+7 3 1
+7 4 1
+Sample Output 0
+
+6
+11
+12
+Sample Input 1
+
+4
+3
+1 2 3
+4 5 6
+7 8 9
+4 3 8
+Sample Output 1
+
+6
+15
+24
+15
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void sum_of_rows(int matrix[][10],int rows,int cols) {
+    for (int i=0; i<rows;i++) {
+        int row_sum = 0;
+        for (int j = 0; j < cols; j++) {
+            row_sum += matrix[i][j];
+        }
+        printf("%d\n", row_sum);
+    }
+}
+
+int main() {
+    int rows, cols;
+    scanf("%d", &rows);
+    scanf("%d", &cols);
+    
+    int matrix[rows][10];
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    
+    sum_of_rows(matrix, rows, cols);
+    
+    return 0;
+}
