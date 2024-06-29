@@ -1,0 +1,57 @@
+Given a set of numbers like {10, 36, 54,89,12}, find the sum of weights based on the following conditions: 1. Weight is 5 if a number is a perfect square 2. Weight is 4 if a number is multiple of 4 and divisible by 6 3. Weight is 3 if a number is even number Sort the numbers and print it as follows <10,its_weight> <36,its_weight> <89,its_weight> Note: Display the numbers based on increasing order.
+
+Input Format
+
+Read size of the list Read elements of the list.
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Print output
+
+Sample Input 0
+
+5
+10 36 54 89 12
+Sample Output 0
+
+<10,3> <12,7> <36,12> <54,3> <89,0>
+
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a[]=new int[n];
+        int i;
+        for(i=0;i<n;i++){
+            a[i]=s.nextInt();
+        }
+        Arrays.sort(a);
+        //for(i=0;i<n;i++){
+         //   System.out.print(a[i]+" ");
+        //}
+        int w[]=new int[n];
+        for(i=0;i<n;i++){
+            w[i]=0;
+            int s1=(int)Math.sqrt(a[i]);
+            if(s1*s1==a[i])
+                w[i]=w[i]+5;
+            if((a[i]%4==0) && (a[i]%6==0))
+                w[i]=w[i]+4;
+            if(a[i]%2==0)
+                w[i]=w[i]+3;
+        }
+        for(i=0;i<n;i++){
+            System.out.print("<"+a[i]+","+w[i]+">"+" ");
+        }
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}
