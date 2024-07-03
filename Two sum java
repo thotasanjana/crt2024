@@ -1,0 +1,79 @@
+Statement:Given an array ,find the indexes of two elements whose sum is equal to the given sum.If there exists multiple solutions,print the minimum indices
+Here we are assuming the array is sorted
+
+1.BRUTE FORCE
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a[]=new int[n];
+        int i,j;
+        for(i=0;i<n;i++)
+        {
+            a[i]=s.nextInt();
+        }
+        int t=s.nextInt();
+        for(i=0;i<n-1;i++)
+        {
+            for(j=i+1;j<n;j++)
+            {
+                if(a[i]+a[j]==t)
+                {
+                System.out.println(i+" "+j);
+                return;
+               }
+            }
+        }
+    System.out.println(-1);
+   }
+}   
+
+
+OUTPUT:
+
+5
+2 9 13 21 54
+63
+1 4
+
+
+2.TWO POINT APPROACH:
+
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=s.nextInt();
+        }
+        int t=s.nextInt();
+        int low=0,high=a.length-1;
+        while(low<high)
+        {
+            if(a[low]+a[high]==t)
+            {
+                System.out.println(low+" "+high);
+                return;
+            }
+            else if(a[low]+a[high]>t)
+              high--;
+            else
+               low++;
+        }
+        System.out.println("-1");
+    }
+}    
+
+
+OUTPUT:
+
+5
+2 9 13 21 54
+63
+1 4
